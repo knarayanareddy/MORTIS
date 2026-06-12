@@ -1,0 +1,48 @@
+[package]
+name = "mortis-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "CLI for MORTIS"
+
+[[bin]]
+name = "mortis"
+path = "src/main.rs"
+
+[[test]]
+name = "e2e"
+path = "../../tests/e2e.rs"
+harness = true
+
+[[test]]
+name = "backward_compat"
+path = "../../tests/backward_compat.rs"
+harness = true
+
+[dependencies]
+clap = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+base64 = { workspace = true }
+rpassword = { workspace = true }
+zeroize = { workspace = true }
+hex = { workspace = true }
+rusqlite = { workspace = true }
+
+mortis-types = { path = "../mortis-types" }
+mortis-core = { path = "../mortis-core" }
+mortis-crypto = { path = "../mortis-crypto" }
+mortis-db = { path = "../mortis-db" }
+mortis-plugins = { path = "../mortis-plugins" }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }

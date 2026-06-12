@@ -1,0 +1,29 @@
+[package]
+name = "mortis-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "Core engine for MORTIS — orchestrator, triggers, passphrase"
+
+[dependencies]
+tokio = { workspace = true }
+async-trait = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+thiserror = { workspace = true }
+zeroize = { workspace = true }
+uuid = { workspace = true }
+cron = { workspace = true }
+regex-lite = "0.1"
+
+mortis-types = { path = "../mortis-types" }
+mortis-crypto = { path = "../mortis-crypto" }
+mortis-plugins = { path = "../mortis-plugins" }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+proptest = { workspace = true }

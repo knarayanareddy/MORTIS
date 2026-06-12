@@ -1,0 +1,26 @@
+# §8.3: License allowlist — MIT, Apache-2.0, ISC only
+[licenses]
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "ISC",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "Unicode-DFS-2016",
+    "Zlib",
+]
+unlicensed = "deny"
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+
+[advisories]
+vulnerability = "deny"
+unmaintained = "warn"
+yanked = "deny"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]

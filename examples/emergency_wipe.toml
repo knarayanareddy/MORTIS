@@ -1,0 +1,32 @@
+# MORTIS Destruction Plan - Emergency Wipe
+# This plan sanitizes local files and browser state
+
+[plan]
+name = "emergency_wipe"
+description = "Emergency data destruction for sensitive files"
+is_default = false
+
+# Phase 1: Sanitize local files
+[[phases]]
+phase_type = "sanitize_local"
+asset_ids = [
+    "00000000-0000-0000-0000-000000000001",
+    "00000000-0000-0000-0000-000000000002"
+]
+continue_on_failure = true
+
+# Phase 2: Clear browser state
+[[phases]]
+phase_type = "clear_browser"
+asset_ids = [
+    "00000000-0000-0000-0000-000000000003"
+]
+continue_on_failure = true
+
+# Phase 3: Wipe database records
+[[phases]]
+phase_type = "wipe_db"
+asset_ids = [
+    "00000000-0000-0000-0000-000000000004"
+]
+continue_on_failure = false

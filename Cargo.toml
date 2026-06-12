@@ -1,0 +1,83 @@
+[workspace]
+members = [
+    "crates/mortis-types",
+    "crates/mortis-crypto",
+    "crates/mortis-db",
+    "crates/mortis-plugins",
+    "crates/mortis-core",
+    "crates/mortis-cli",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+rust-version = "1.75.0"
+
+[workspace.dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+async-trait = "0.1"
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+
+# Logging / Tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["json", "env-filter"] }
+
+# Cryptography — §7 CANONICAL: only audited crates
+ed25519-dalek = { version = "2", features = ["rand_core"] }
+ring = "0.17"
+rand = "0.8"
+zeroize = { version = "1", features = ["derive"] }
+aes-gcm = "0.10"
+
+# Database — §CANONICAL: SQLCipher for encrypted storage
+rusqlite = { version = "0.31", features = ["bundled-sqlcipher"] }
+
+# UUID
+uuid = { version = "1", features = ["v4", "serde"] }
+
+# Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Cron
+cron = "0.13"
+
+# HTTP
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+
+# Error handling
+thiserror = "2"
+anyhow = "1"
+
+# Encoding
+base64 = "0.22"
+hex = "0.4"
+
+# Filesystem
+walkdir = "2"
+glob = "0.3"
+tempfile = "3"
+
+# Secure input
+rpassword = "7"
+
+# Process / signal handling
+libc = "0.2"
+
+# Property testing
+proptest = "1"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = "symbols"
+panic = "abort"
